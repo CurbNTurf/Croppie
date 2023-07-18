@@ -1449,6 +1449,9 @@
                 case 'blob':
                     _getBlobResult.call(self, data).then(resolve);
                     break;
+                case 'points':
+                    resolve({ points: data.points, ratio: ratio });
+                    break;
                 default:
                     resolve(_getHtmlResult.call(self, data));
                     break;
