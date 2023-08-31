@@ -1361,6 +1361,10 @@
         return parseFloat(v).toFixed(decimalPoints || 0);
     }
 
+    function floor(v) {
+        return Math.floor(parseFloat(v));
+    }
+
     function _get() {
         var self = this,
             imgData = self.elements.preview.getBoundingClientRect(),
@@ -1384,7 +1388,7 @@
         y2 = Math.max(max, y2 / scale);
 
         return {
-            points: [fix(x1), fix(y1), fix(x2), fix(y2)],
+            points: [fix(x1), fix(y1), floor(x2), floor(y2)],
             zoom: scale,
             orientation: self.data.orientation
         };
